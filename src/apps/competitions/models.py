@@ -44,10 +44,41 @@ class Competition(models.Model):
     def __str__(self):
         return self.title
 
-    def generate_random_logo(self):
-        image = BytesIO()
-        image.write(resp.content)
-        self.logo_file.save("logo.png", image)
+    # def generate_random_logo(self):
+    #     def generate_random_image():
+    #         img_data = []
+    #
+    #         colors = (
+    #             (245, 255, 250),
+    #             (230, 230, 250),
+    #             (244, 238, 224),
+    #         )
+    #
+    #         WIDTH = 8
+    #         HEIGHT = 8
+    #
+    #         for x in range(0, WIDTH):
+    #             for y in range(0, HEIGHT):
+    #                 if y >= (WIDTH / 2) or random.randint(0, 100) > 25:
+    #                     img_data.append((0, 0, 0, 0))
+    #                 else:
+    #                     # img_data.append((random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)))
+    #                     img_data.append(random.choice(colors))
+    #
+    #         randomized_image = Image.new("RGBA", size=(WIDTH, HEIGHT))
+    #         randomized_image.putdata(img_data)
+    #         return randomized_image
+    #
+    #     image = generate_random_image()
+    #
+    #     image2 = ImageOps.mirror(image)
+    #
+    #     image = Image.alpha_composite(image, image2)
+    #
+    #     image = image.resize((78, 78))
+    #     image.show()
+
+
 
     # def save(self, *args, **kwargs):
     #     # Send off our data
