@@ -1,3 +1,5 @@
+from io import BytesIO
+
 import json
 
 import datetime
@@ -5,6 +7,8 @@ from channels import Group
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
+
+from utils.data import PathWrapper
 
 
 class Competition(models.Model):
@@ -21,6 +25,7 @@ class Competition(models.Model):
     remote_id = models.PositiveIntegerField(null=True, blank=True)
 
     logo = models.URLField(null=True, blank=True, default="/static/img/img-wireframe.png")
+    logo_file = models.ImageField(blank=True, upload_to=PathWrapper("competition_logos"))
     url = models.URLField()
 
     admins = models.ManyToManyField('CompetitionParticipant', related_name='admins', blank=True)
@@ -38,6 +43,11 @@ class Competition(models.Model):
 
     def __str__(self):
         return self.title
+
+    def generate_random_logo(self):
+        image = BytesIO()
+        image.write(resp.content)
+        self.logo_file.save("logo.png", image)
 
     # def save(self, *args, **kwargs):
     #     # Send off our data

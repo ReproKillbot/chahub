@@ -78,6 +78,7 @@ class CompetitionSerializer(WritableNestedModelSerializer):
             'created_by',
             'start',
             'logo',
+            'logo_file',
             'url',
             'phases',
             'participants',
@@ -99,6 +100,18 @@ class CompetitionSerializer(WritableNestedModelSerializer):
                 'validators': [],
             }
         }
+
+
+
+
+
+    def validate_logo(self, logo):
+        return logo
+
+
+
+
+
 
     def validate_description(self, description):
         if description:

@@ -21,3 +21,4 @@ termcolor==1.1.0
 faker==0.8.10
 tqdm==4.19.5
 django-debug-toolbar==1.9.1
+pillow==5.2.0
